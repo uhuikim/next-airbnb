@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast";
 import RegisterModal from "./components/modals/RegisterModal";
 import Navbar from "./components/navbar/Navbar";
 import "./globals.css";
@@ -20,7 +21,7 @@ export default function RootLayout({
       <body className={font.className}>
         <RegisterModal />
         <Navbar />
-
+        <Toaster />
         {children}
       </body>
     </html>

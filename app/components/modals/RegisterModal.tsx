@@ -11,6 +11,7 @@ import Heading from "../Heading";
 import Input from "../inputs/Input";
 import { toast } from "react-hot-toast";
 import Button from "../Button";
+import { signIn } from "next-auth/react";
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
@@ -35,9 +36,12 @@ const RegisterModal = () => {
     axios
       .post("/api/register", data)
       .then(() => {
-        registerModal.onClose;
+        toast.success("Registered!");
+        registerModal.onClose();
       })
-      .catch(() => toast.error("Somting Went Wrong."))
+      .catch((error) => {
+        toast.error(error);
+      })
       .finally(() => {
         setIsLoading(false);
       });
@@ -85,9 +89,9 @@ const RegisterModal = () => {
       />
       <Button
         outline
-        label="Continue with Githug"
+        label="Continue with Github"
         icon={AiFillGithub}
-        onClick={() => {}}
+        onClick={() => signIn("github")}
       />
       <div className="text-neutral-500 text-center mt-4 font-light">
         <div className="justify-center flex flex-row items-center gap-2">

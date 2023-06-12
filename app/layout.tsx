@@ -7,6 +7,7 @@ import './globals.css';
 import { Nunito } from 'next/font/google';
 import getCurrentUser from './actions/getCurrentUser';
 import RentModal from './components/modals/RentModal';
+import SearchModal from './components/modals/SearchModal';
 
 const font = Nunito({ subsets: ['latin'] });
 
@@ -23,6 +24,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 <RegisterModal />
                 <LoginModal />
                 <RentModal />
+                <SearchModal />
                 <Navbar currentUser={currentUser} />
                 <Toaster />
                 <div className="pb-20 pt-28"> {children}</div>
